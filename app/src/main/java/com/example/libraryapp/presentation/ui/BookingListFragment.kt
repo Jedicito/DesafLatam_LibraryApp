@@ -19,9 +19,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
-
     private var _binding: FragmentBookingListBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var bookAdapter: BookAdapter
 
     private val viewModel: BookListViewModel by viewModels()
@@ -32,6 +32,7 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
     ): View? {
         _binding = FragmentBookingListBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
