@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_booking_list">
         <action
             android:id="@+id/action_bookingListFragment_to_bookingDetailFragment"
-            app:destination="@id/bookingDetailFragment" />
+            app:destination="@id/bookingDetailFragment">
+            <argument android:name="bookId" app:argType="integer" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/bookingDetailFragment"
