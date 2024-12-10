@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.libraryapp.R
 
 /**
@@ -13,10 +14,14 @@ import com.example.libraryapp.R
  * create an instance of this fragment.
  */
 class BookingDetailFragment : Fragment() {
-
+    //val bookId = BookingDetailFragmentArgs.fromBundle(requireArguments()).bookId
+    private var bookId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            bookId = it.getInt("bookId")
+        }
     }
 
     override fun onCreateView(

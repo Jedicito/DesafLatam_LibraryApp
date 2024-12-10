@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -62,8 +63,10 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
     private fun setupRecyclerView() {
         bookAdapter = BookAdapter { book ->
             // Navegar al detalle usando Navigation Component pasar el id
-            var action = BookingListFragmentDirections.actionBookingListFragmentToBookingDetailFragment(book.id)
-            this.findNavController().navigate(R.id.action_bookingListFragment_to_bookingDetailFragment)
+            val bundle = Bundle()
+            bundle.putInt("bookId", book.id)
+            //var action = BookingListFragmentDirections.actionBookingListFragmentToBookingDetailFragment(book.id)
+            this.findNavController().navigate(R.id.action_bookingListFragment_to_bookingDetailFragment, bundle)
         }
         binding.recyclerView.apply {
             adapter = bookAdapter
