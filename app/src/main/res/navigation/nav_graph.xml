@@ -18,9 +18,9 @@
     </fragment>
     <fragment
         android:id="@+id/bookingDetailFragment"
-        android:name="com.example.libraryapp.presentation.ui.BookingDetailFragment"
+        android:name="com.example.libraryapp.presentation.ui.BookDetailFragment"
         android:label="BookingDetailFragment"
-        tools:layout="@layout/fragment_booking_detail">
+        tools:layout="@layout/fragment_book_detail">
         <action
             android:id="@+id/action_bookingDetailFragment_to_bookingListFragment"
             app:destination="@id/bookingListFragment" />

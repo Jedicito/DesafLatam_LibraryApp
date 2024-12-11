@@ -12,8 +12,13 @@ class BookRepositoryImpl: BookRepository {
         return try {
             localDataSource.getBooks()
         } catch (e: Exception) {
-            throw Exception("Error fetching books", e)
+            throw Exception("Error buscando libros", e)
         }
+    }
+
+    override suspend fun getBookById(bookId: Int): Book {
+        val book = getBooks().find { book -> book.id == bookId}
+        return book ?: throw Exception("Error: Libro no encontrado")
     }
 
 }

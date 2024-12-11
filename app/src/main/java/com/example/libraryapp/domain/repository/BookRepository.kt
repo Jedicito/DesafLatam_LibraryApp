@@ -6,5 +6,7 @@ interface BookRepository {
     //TODO implement the other functions
     suspend fun getBooks(): List<Book>
 
-    suspend fun getBookById(bookId: Int): Book
+    suspend fun getBookById(bookId: Int): Book? {
+        return getBooks().find { it.id == bookId }
+    }
 }

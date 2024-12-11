@@ -36,7 +36,6 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
     ): View? {
         _binding = FragmentBookingListBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -47,7 +47,7 @@ class BookAdapter(
                 yearText.text = book.year.toString()
 
                 availabilityChip.apply {
-                    text = if (book.isAvailable) "Available" else "Checked Out"
+                    text = if (book.isAvailable) "Disponible" else "Agotado"
                     chipBackgroundColor = ColorStateList.valueOf(
                         context.getColor(
                             if (book.isAvailable) R.color.available

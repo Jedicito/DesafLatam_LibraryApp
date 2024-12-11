@@ -2,7 +2,7 @@ package com.example.libraryapp.domain.usecase
 
 object UseCaseProvider {
     private var getBooksUseCase: GetBooksUseCase? = null
-    //private var getBookDetailUseCase: GetBookDetailUseCase? = null
+    private var getBookByIdUseCase: GetBookByIdUseCase? = null
     //private var addBookUseCase: AddBookUseCase? = null
 
     fun provideGetBooksUseCase(): GetBooksUseCase {
@@ -13,13 +13,14 @@ object UseCaseProvider {
     }
 
     // TODO implement the useCases first
-  /*  fun provideGetBookDetailUseCase(): GetBookDetailUseCase {
-        if (getBookDetailUseCase == null) {
-            getBookDetailUseCase = GetBookDetailUseCase()
+  fun provideGetBookByIdUseCase(): GetBookByIdUseCase {
+        if (getBookByIdUseCase == null) {
+            getBookByIdUseCase = GetBookByIdUseCase()
         }
-        return getBookDetailUseCase!!
+        return getBookByIdUseCase!!
     }
 
+/*
     fun provideAddBookUseCase(): AddBookUseCase {
         if (addBookUseCase == null) {
             addBookUseCase = AddBookUseCase()

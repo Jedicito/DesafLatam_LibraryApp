@@ -1,7 +1,7 @@
 package com.example.libraryapp.domain.model
 
 data class Book(
-    val id: Int,
+    var id: Int,
     val title: String,
     val author: String,
     val year: Int,
