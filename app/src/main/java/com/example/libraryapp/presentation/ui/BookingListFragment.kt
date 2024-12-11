@@ -85,6 +85,12 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
             .setPositiveButton("Add") { _, _ ->
                 with(dialogBinding) {
                    //TODO call the function that add a new book
+                    viewModel.addBook(
+                        titleInput.text.toString(),
+                        authorInput.text.toString(),
+                        yearInput.text.toString().toInt(),
+                        descriptionInput.text.toString()
+                    )
                 }
             }
             .setNegativeButton("Cancel", null)

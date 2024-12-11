@@ -20,6 +20,4 @@ class LocalBookDataSource {
         BookDatabase.addBook(book)
     }
 
-    //TODO add the updateFunction
-
 }

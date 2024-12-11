@@ -17,8 +17,13 @@ class BookRepositoryImpl: BookRepository {
     }
 
     override suspend fun getBookById(bookId: Int): Book {
-        val book = getBooks().find { book -> book.id == bookId}
+        val book = localDataSource.getBook(bookId)
         return book ?: throw Exception("Error: Libro no encontrado")
+    }
+
+    override suspend fun addBook(book: Book){
+        localDataSource.addBook(book)
+
     }
 
 }

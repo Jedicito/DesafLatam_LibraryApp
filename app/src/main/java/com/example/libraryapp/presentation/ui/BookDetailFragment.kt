@@ -3,9 +3,7 @@ package com.example.libraryapp.presentation.ui
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.libraryapp.R
@@ -35,15 +33,7 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
             bookId = it.getInt("bookId")
         }
     }
-/*
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_book_detail, container, false)
-    }
-*/
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentBookDetailBinding.bind(view)
@@ -55,7 +45,6 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
                     authorText.text = it.author
                     yearText.text = it.year.toString()
                     descriptionText.text = it.description
-                    //availabilityChip.text = if (it.isAvailable) "Disponible" else "Agotado"
                     availabilityChip.apply {
                         text = if (book.isAvailable) "Disponible" else "Agotado"
                         chipBackgroundColor = ColorStateList.valueOf(
