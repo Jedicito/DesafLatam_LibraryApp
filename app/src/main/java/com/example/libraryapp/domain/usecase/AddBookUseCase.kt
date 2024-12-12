@@ -5,16 +5,16 @@ import com.example.libraryapp.domain.repository.BookRepository
 
 class AddBookUseCase(private val repository: BookRepository) {
     suspend operator fun invoke(
-        title: String,
-        author: String,
-        year: Int,
-        description: String,
+        title: String = "",
+        author: String = "",
+        year: Int = 0,
+        description: String = "",
         imageUrl: String? = null
     ) {
 // Validaciones
-        require(title.isNotBlank()) { "Title cannot be empty" }
-        require(author.isNotBlank()) { "Author cannot be empty" }
-        require(year > 0) { "Invalid year" }
+        require(title.isNotBlank()) {  "Titulo no puede estar vacío" }
+        require(author.isNotBlank()) { "Autor no puede estar vacío" }
+        require(year > 0) { "Año inválido" }
         val book = Book(
             id = 0, // Repository asignará ID
             title = title,
@@ -26,6 +26,4 @@ class AddBookUseCase(private val repository: BookRepository) {
         )
         repository.addBook(book)
     }
-
-
 }

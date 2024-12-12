@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +18,6 @@ import com.example.libraryapp.presentation.viewmodel.BookListViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import java.time.temporal.ValueRange
 
 class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
     private var _binding: FragmentBookingListBinding? = null
@@ -80,20 +77,22 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
         val dialogBinding = DialogAddBookBinding.inflate(layoutInflater)
 
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Add New Book")
+            .setTitle(getString(R.string.agregar_nuevo_libro))
             .setView(dialogBinding.root)
-            .setPositiveButton("Add") { _, _ ->
+            .setPositiveButton(getString(R.string.alert_btn_agregar)) { _, _ ->
                 with(dialogBinding) {
-                   //TODO call the function that add a new book
+                    val year = if(yearInput.text.toString().isBlank()) 0 //Sin este 0 se cae la app
+                        else yearInput.text.toString().toInt()
+
                     viewModel.addBook(
-                        titleInput.text.toString(),
-                        authorInput.text.toString(),
-                        yearInput.text.toString().toInt(),
-                        descriptionInput.text.toString()
+                        title =  titleInput.text.toString(),
+                        author =  authorInput.text.toString(),
+                        year =  year,
+                        description =  descriptionInput.text.toString()
                     )
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.alert_btn_cancelar), null)
             .show()
     }
 

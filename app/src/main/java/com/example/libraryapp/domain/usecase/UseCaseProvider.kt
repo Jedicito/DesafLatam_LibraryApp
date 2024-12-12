@@ -14,14 +14,12 @@ object UseCaseProvider {
         return getBooksUseCase!!
     }
 
-    // TODO implement the useCases first
   fun provideGetBookByIdUseCase(): GetBookByIdUseCase {
         if (getBookByIdUseCase == null) {
             getBookByIdUseCase = GetBookByIdUseCase()
         }
         return getBookByIdUseCase!!
     }
-
 
     fun provideAddBookUseCase(): AddBookUseCase {
         if (addBookUseCase == null) {
